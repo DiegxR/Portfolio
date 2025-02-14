@@ -1,8 +1,7 @@
 "use client"
 import ShinyButton from "@/components/magicui/shiny-button";
 import { useViewContext } from "@/lib/context/ViewContext";
-import { Button, Navbar, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
-import { Link } from "lucide-react";
+import { Button } from "@nextui-org/react";
 import React, { useState } from "react";
 
 const Header = () => {

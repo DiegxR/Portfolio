@@ -1,10 +1,10 @@
 "use client";
 import { projectsArray } from "@/lib/projects";
-import { Detail, Project } from "@/types/proyects";
+import { Project } from "@/types/proyects";
 import { motion } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { Card } from "@nextui-org/react";
 import ImageCarousel from "../../../ImageCarousel";
 import { Tooltip } from "@nextui-org/react";
 

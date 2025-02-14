@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import ShinyButton from "../../magicui/shiny-button";
 import { useViewContext } from "@/lib/context/ViewContext";
 import { Button } from "@nextui-org/button";
 import { AnimatePresence, motion } from "framer-motion";

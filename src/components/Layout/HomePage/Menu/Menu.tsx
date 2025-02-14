@@ -3,10 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useViewContext } from "@/lib/context/ViewContext";
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import { motion } from "framer-motion";
-
 import MotionText from "@/components/MotionText";
-import ButtonTap from "@/components/ui/ButtonTap";
-import Contacts from "./Contacts";
 
 const Menu = () => {
   const { toggleView, transition } = useViewContext();
