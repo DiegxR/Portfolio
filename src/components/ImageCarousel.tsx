@@ -46,7 +46,7 @@ const ImageCarousel = ({ images = [] }: { images: string[] }) => {
       <div className="relative w-full h-64 md:h-96 overflow-hidden">
         <Image
           src={images[0]}
-        className="mx-auto object-contain"
+          className="mx-auto object-contain"
           alt="Single image"
           width={700}
           height={700}
@@ -57,42 +57,48 @@ const ImageCarousel = ({ images = [] }: { images: string[] }) => {
 
   return (
     <>
-    <div className="relative w-full h-full md:h-96 overflow-hidden">
-      <AnimatePresence initial={false} custom={currentIndex}>
-        <motion.div
-          key={currentIndex}
-          custom={currentIndex}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-          className="w-full h-full object-contain flex justify-center"
+      <div className="relative w-full h-full md:h-96 overflow-hidden">
+        <AnimatePresence initial={false} custom={currentIndex}>
+          <motion.div
+            key={currentIndex}
+            custom={currentIndex}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            className="w-full h-[150%] object-contain flex justify-center"
+          >
+            <motion.div>
+              <Image
+                className="mx-auto object-contain"
+                fill
+                alt={`Slide ${currentIndex + 1}`}
+                src={images[currentIndex]}
+              />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/75 transition-colors"
+          aria-label="Previous image"
         >
-          <Image className="mx-auto object-contain" fill alt={`Slide ${currentIndex + 1}`} src={images[currentIndex]} />
-        </motion.div>
-      </AnimatePresence>
+          <ChevronLeft className="w-6 h-6" />
+        </button>
 
-      <button
-        onClick={handlePrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/75 transition-colors"
-        aria-label="Previous image"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-
-      <button
-        onClick={handleNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/75 transition-colors"
-        aria-label="Next image"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
-    </div>
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/75 transition-colors"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
       <div className="z-[99] left-1/2 transform -translate-x-1/2 translate-y-4 flex gap-2">
         {images.map((_, index) => (
           <button

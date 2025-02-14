@@ -1,4 +1,4 @@
-import ProjectDetails from '@/components/Layout/ProjectDetails'
+import ProjectDetails from '@/components/Layout/Landing/Projects/ProjectDetails'
 
 import React from 'react'
 

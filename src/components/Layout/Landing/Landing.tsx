@@ -1,15 +1,17 @@
 "use client";
-import React, { LegacyRef, RefObject, useEffect, useRef } from "react";
-import ShinyButton from "../magicui/shiny-button";
+import React, { useEffect, useRef, useState } from "react";
 import { useViewContext } from "@/lib/context/ViewContext";
 import { Button } from "@nextui-org/button";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import Projects from "./Projects";
-import Meteors from "../magicui/meteors";
+import { projectsArray } from "@/lib/projects";
+import Meteors from "../../magicui/meteors";
+import Project from "./Projects/Project";
+import Header from "./Header";
+import { Tooltip } from "@nextui-org/react";
 const Landing = () => {
-  const { toggleView, stationRef, viewState, transition, setStationRef } =
-    useViewContext();
+  const { viewState, transition, setStationRef } = useViewContext();
+  const [seeMore, setSeeMore] = useState(false);
   const ref = useRef<any>();
   setStationRef(ref);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,29 +56,7 @@ const Landing = () => {
         className="flex overflow-y-scroll h-screen flex-col md:flex-row absolute w-full z-[98]"
       >
         <div ref={ref} className="w-full">
-          <header className="w-full fixed z-[99] h-[80px] bg-slate-600/40 py-1 px-16 flex items-center justify-between">
-            <span
-              onClick={() => (transition ? "" : toggleView())}
-              className="icon-[system-uicons--home] text-white text-2xl cursor-pointer hover:"
-            ></span>
-            <div className="flex items-center gap-5">
-              <a href="#inicio">
-                <Button className="px-2 py-1 bg-black text-white font-normal w-[100px] rounded-[8px] h-[38px]">
-                  Inicio
-                </Button>
-              </a>
-              <a  href="#proyectos">
-                <ShinyButton className="bg-white" text="Mis Proyectos" />
-              </a>
-              <a  href="#habilidades">
-              <Button
-                className="px-2 py-1 bg-black text-white font-normal w-[100px] rounded-[8px] h-[38px]"
-              >
-                Tecnologías
-              </Button>
-              </a>
-            </div>
-          </header>
+          <Header />
           <main className="container mx-auto overflow-x-hidden w-full relative px-4 py-16">
             <section id="inicio" className="mb-32 text-center">
               <motion.div
@@ -84,12 +64,15 @@ const Landing = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
+                <h3 className="text-5xl mt-14 py-2 font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400">
+                  Diego Rojas
+                </h3>
                 <Image
-                  src="/placeholder.svg?height=200&width=200&text=JD"
+                  src="/logoland.png"
                   alt=""
-                  width={200}
-                  height={200}
-                  className="rounded-full mx-auto mb-8"
+                  width={300}
+                  height={300}
+                  className="rounded-full mx-auto my-8"
                 />
                 <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400">
                   Desarrollador full stack
@@ -101,15 +84,14 @@ const Landing = () => {
                   ideas.
                 </p>
                 <div className="flex justify-center space-x-4">
-                  <a
-                    href="#proyectos"
-                    className="bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    Ver Proyectos
+                  <a href="#proyectos">
+                    <Button className="bg-gradient-to-br from-slate-800/80 to-slate-900/90 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-[15px] transition-colors duration-300 shadow-lg hover:shadow-xl">
+                      Ver Proyectos
+                    </Button>
                   </a>
                   <a
                     href="https://wa.me/+573112425911?text=a"
-                    className="bg-transparent hover:bg-white/10 text-white font-bold py-2 px-4 rounded-lg border border-white transition-colors duration-300"
+                    className="bg-transparent hover:bg-white/10 text-white font-bold py-2 px-4 rounded-[15px] border border-white transition-colors duration-300"
                   >
                     Contactar
                   </a>
@@ -120,7 +102,64 @@ const Landing = () => {
               <h2 className="text-3xl text-white font-bold mb-12 text-center">
                 Proyectos Destacados
               </h2>
-              <Projects />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projectsArray.map((project, index) => {
+                  if (index <= 2) {
+                    return (
+                      <Project key={index} project={project} index={index} />
+                    );
+                  } else if (seeMore) {
+                    return (
+                      <AnimatePresence key={index}>
+                        {seeMore && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                          >
+                            <Project project={project} index={index} />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    );
+                  }
+                })}
+              </div>
+              <div className="flex w-full justify-center">
+                <motion.div
+                  onClick={() => setSeeMore(!seeMore)}
+                  className="bg-slate-500/40 rounded-full mt-8 flex justify-center items-center p-2 cursor-pointer"
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "rgba(100, 116, 139, 0.5)", // Un poco más claro en hover
+                  }}
+                  animate={{
+                    rotate: seeMore ? 180 : 0,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Tooltip
+                    classNames={{
+                      content: "bg-slate-500/30 px-3",
+                      base: "z-[100] rounded-[1px]",
+                    }}
+                    className="select-none shadow-lg translate-y-[85px]  text-white"
+                    content={
+                      seeMore ? "Ver menos proyectos" : `Ver más proyectos`
+                    }
+                  >
+                    <i
+                      className="icon-[iconamoon--arrow-down-2] text-white font-bold text-3xl"
+                      role="img"
+                      aria-hidden="true"
+                    />
+                  </Tooltip>
+                </motion.div>
+              </div>
             </section>
 
             <section id="habilidades" className="mb-32">
@@ -142,8 +181,14 @@ const Landing = () => {
                     key={skill}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="   bg-gradient-to-br from-slate-600/70 to-slate-800/90 hover:to-slate-500 select-none backdrop-blur-[0.2px] border-gray-700/95 text-white border border-black rounded-lg p-4"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{
+                      duration: 0.1,
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 17,
+                    }}
+                    className=" bg-gradient-to-br from-slate-800/70 to-slate-900/90 hover:to-slate-500 select-none backdrop-blur-[0.2px] border-gray-700/95 text-white border border-black rounded-[15px] p-4"
                   >
                     <p className="text-center font-semibold">{skill}</p>
                   </motion.div>
