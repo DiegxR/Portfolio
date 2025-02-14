@@ -17,7 +17,6 @@ const CustomModel = () => {
   const textureOcean = useLoader(TextureLoader, "/oceanDepth.jpeg");
   const earthMask = useLoader(TextureLoader, "/mask.png");
   const clouds = useLoader(TextureLoader, "/clouds.jpeg");
-  const car = useLoader(TextureLoader, "/carTexture.png");
   const ref: any = useRef();
 
   useFrame(() => {

@@ -119,7 +119,7 @@ export const projectsArray: Project[] = [
       {
         images: [
           "https://drive.google.com/uc?id=1l0bs4syJs9C0WAXgIGPq22Zkf2mIozWq",
-          "https://drive.google.com/uc?id=17UpthvMLMZzNOVxPLAoiR2Y0m1VgS87M"
+          "https://drive.google.com/uc?id=17UpthvMLMZzNOVxPLAoiR2Y0m1VgS87M",
         ],
         title: "Usuarios y Autenticación",
         description:
@@ -134,7 +134,7 @@ export const projectsArray: Project[] = [
       {
         images: [
           "https://drive.google.com/uc?id=1kmLDkYT2oS_Y91pGX-VTw76d3-s0OnQY",
-          "https://drive.google.com/uc?id=1LccWPTIkvs_CqtGdIx1PI9TA4GxupBzO"
+          "https://drive.google.com/uc?id=1LccWPTIkvs_CqtGdIx1PI9TA4GxupBzO",
         ],
         title: "Creación de qrs",
         description:
@@ -151,12 +151,15 @@ export const projectsArray: Project[] = [
           "https://drive.google.com/uc?id=1y99BB8i1ET0DmRo_HMr8-uwvKuvSq9be",
           "https://drive.google.com/uc?id=1wwkvsi4MLXuxz5aAEeF3AmjbigxlI45d",
           "https://drive.google.com/uc?id=196kiBEQ-wRx0EQDCOp0hN5G0I8CGuJp-",
-          "https://drive.google.com/uc?id=1t6PevGiPaHEQLa_tEudiGXJIWJnmNmO3"
+          "https://drive.google.com/uc?id=1t6PevGiPaHEQLa_tEudiGXJIWJnmNmO3",
         ],
         title: "App Mobile",
         description:
           "La app mobile se utiliza para hacer seguimiendo de las colonias asignadas por cada meliponario donde se puede hacer el control de cada una de ellas",
-        icons: [{ icon: "icon-[fontisto--react]", name: "React Native" }, { icon: "icon-[logos--expo]", name: "Expo" }],
+        icons: [
+          { icon: "icon-[fontisto--react]", name: "React Native" },
+          { icon: "icon-[logos--expo]", name: "Expo" },
+        ],
         link: "https://latamverify.com/subscription",
         tag: "FrontEnd",
       },
@@ -168,40 +171,72 @@ export const projectsArray: Project[] = [
         title: "Microservicio Backend",
         description:
           "Desde el backend se maneja la creación de usuarios administradores, que a su vez pueden crear usuarios para la app de control y seguimiento también pueden crear meliponarios y colonias con su respectivo id y código qr, también se maneja el logueo de cada usuario",
-        icons: [{ icon: "icon-[devicon--nestjs]", name: "Nest js" }, { icon: "icon-[devicon--postgresql]", name: "Postgresql" }],
+        icons: [
+          { icon: "icon-[devicon--nestjs]", name: "Nest js" },
+          { icon: "icon-[devicon--postgresql]", name: "Postgresql" },
+        ],
         link: "https://latamverify.com/subscription",
         tag: "FrontEnd",
       },
     ],
     tags: ["FrontEnd", "BackEnd"],
   },
-  
-  // {
-  //   name: "White Car",
-  //   description:
-  //     "Plaforma de transporte especializada para tu mascota completamente legal y de la mejor calidad, conductores y vehículos certificados",
-  //     details:
-  //     [
-  //       {
-  //         image: "https://drive.google.com/uc?1nRSDYp8b3XlIeE0hFpqN5nUHGqLIPt983",
-  //         title: "Blooma",
-  //         description: "Blooma es una iniciativa que pretende gestionar proyectos tanto de diseño como de desarrollo desde el lado de las empresas y los freelancers capacitados para desarrollar este tipo de proyectos,",
-  //         icons: [{icon: "icon-[cib--next-js]", name: "Next Js"}],
-  //         link: ""
-  //       },
-  //       {
-  //         image: "https://drive.google.com/uc?id=1IpACbPLs42wkiV2pZ-eEwl6OusnjidN3",
-  //         title: "Autenticación",
-  //         description: "Blooma es una iniciativa que pretende gestionar proyectos tanto de diseño como de desarrollo desde el lado de las empresas y los freelancers capacitados para desarrollar este tipo de proyectos,",
-  //         icons: [{icon: "icon-[cib--next-js]", name: "Next Js"}],
-  //         link: ""
-  //       }
-  //     ],
-  //   technologies: ["", ""],
-  //   images: [
-  //     "https://drive.google.com/uc?id=1OE_n_KLHkrui4UDbNsGKgMvKrZK0Vjcf",
-  //     "https://drive.google.com/file/d//view?usp=drive_link",
-  //     "https://drive.google.com/uc?id=1JL0xkkLg2E1ckdre1f1PsvIorY7aNiie",
-  //   ],
-  // },
+
+  {
+    name: "Jooci Gps",
+    description:
+      "Plataforma de software web para seguimiento y control de dispositivos gps vinculados a vehículos",
+    details: [
+      {
+        images: [
+          "https://drive.google.com/uc?id=1hTih908siuaw94l4talQiord3FZ6Y3Gi",
+          "https://drive.google.com/uc?id=11rbOTCvU6dkqyheHTYkPrFZT2EdnQvFu",
+          "https://drive.google.com/uc?id=19HT-IO2_pr-vBjInf2z9ooic2k1NwAPw",
+        ],
+        title: "Usuarios",
+        description:
+          "Para esta platforma se creó el inicio de sesión para el Administrador, el cuál a su vez puede crear desde el dashboard los usuarios propietarios que podrán ingresar y gestionar sus dispositivos y vehículos",
+        icons: [
+          { icon: "icon-[simple-icons--react]", name: "React Js" },
+          {
+            icon: "icon-[simple-icons--reacthookform]",
+            name: "React Hook Form",
+          },
+        ],
+        link: "",
+        tag: "FrontEnd",
+      },
+      {
+        images: [
+          "https://drive.google.com/uc?id=15uKdmUL1BMRXXgH0lUfIWko4Z1CH5gyg",
+          "https://drive.google.com/uc?id=1NmQKnAFvYhjLxGDqnqlK4tXTuhTpCH_G",
+          "https://drive.google.com/uc?id=1khDRBnL-40PJfV4e1eYjhGwU3oq5Yjo8"
+        ],
+        title: "Dispositivos",
+        description:
+          "Un administrador puede registrar nuevos dispositivos lo cuales después podrán ser asignados a usuarios cuando estos los sociliten para compra o alquiler",
+        icons: [{ icon: "icon-[file-icons--tailwind]", name: "Tailwind Css" },
+          { icon: "icon-[file-icons--redux]", name: "Redux" }
+        ],
+        link: "",
+        tag: "FrontEnd",
+      },
+      {
+        images: [
+          "https://drive.google.com/uc?id=10GdJW28jW2198p73kjkfjKHytK0z4xBI",
+          "https://drive.google.com/uc?id=1T33VriqQNUv99y5DkSN-rJyGNi7_xdkc",
+          "https://drive.google.com/uc?id=1j2nOFYqUU31c4QRXXZbQ3qy_reauNoZP"
+        ],
+        title: "Vehiculos",
+        description:
+          "El usuario propietario puede crear vehiculos con la placa a los que posteriormente podrá agregarles uno de los dispositivos anteriormente solicitados y hacer seguimiento a través del mapa",
+        icons: [{ icon: "icon-[devicon--firebase]", name: "Firebase" },
+          { icon: "icon-[logos--express]", name: "Express js" }
+        ],
+        link: "",
+        tag: "FrontEnd",
+      },
+    ],
+    tags: ["FrontEnd"],
+  },
 ];

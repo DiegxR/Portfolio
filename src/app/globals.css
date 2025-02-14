@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 @layer base {
   :root {
@@ -59,13 +59,13 @@
     --chart-5: 340 75% 55%;
   }
 }
-.font1 {
-  font-family: "Rubik Doodle Shadow", system-ui;
+body {
+  font-family: "Source Code Pro", serif;
   font-weight: 400;
   font-style: normal;
 }
-.arrayFont{
-  font-family: 'Clash Display', sans-serif;
+.arrayFont {
+  font-family: "Clash Display", sans-serif;
 }
 @layer base {
   * {

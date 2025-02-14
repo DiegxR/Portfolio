@@ -25,11 +25,11 @@ export default function RootLayout({
         rel="stylesheet"
       />{" "}
       <ViewStateProvider>
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className} overflow-x-hidden`}>
           {children}
           <ThreeScene>
-            <color attach="background" args={["#161c24"]} />
-            <Objects color="#00ff00" position={[-1, 0, 0]} />
+            <color attach="background" args={["#000000"]} />
+            <Objects color="#000000" position={[-1, 0, 0]} />
             <ambientLight />
             <Control />
           </ThreeScene>
